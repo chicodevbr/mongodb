@@ -7,6 +7,6 @@ app.use(express.json());
 
 app.post('/products', mongo.createProduct);
 
-//app.get('/products', mongoPractice.getProducts);
+app.get('/products', mongo.getProducts);
 
 app.listen(5002);
