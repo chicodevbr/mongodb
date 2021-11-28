@@ -1,7 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-
-const url =
-  'mongodb+srv://admin:mQ7OOX5tC5lMSEg6@db.plvvj.mongodb.net/products?retryWrites=true&w=majority';
+const db = require('./config');
 
 const createProduct = async (req, res, next) => {
   const newProduct = {
@@ -9,7 +7,7 @@ const createProduct = async (req, res, next) => {
     price: req.body.price,
   };
 
-  const client = new MongoClient(url);
+  const client = new MongoClient(db.url);
 
   try {
     await client.connect();
@@ -23,7 +21,7 @@ const createProduct = async (req, res, next) => {
 };
 
 const getProducts = async (req, res, next) => {
-  const client = new MongoClient(url);
+  const client = new MongoClient(db.url);
 
   let products;
 
