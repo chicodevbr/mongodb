@@ -1,12 +1,12 @@
 const express = require('express');
-const mongoPractice = require('./mongo');
+const mongo = require('./mongoose');
 
 const app = express();
 
 app.use(express.json());
 
-app.post('/products', mongoPractice.createProduct);
+app.post('/products', mongo.createProduct);
 
-app.get('/products', mongoPractice.getProducts);
+//app.get('/products', mongoPractice.getProducts);
 
 app.listen(5002);
